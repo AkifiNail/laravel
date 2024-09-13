@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call([
-            StudentSeeder::class,
             FormationSeeder::class,
+            StudentSeeder::class,
         ]);
 
     }
