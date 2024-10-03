@@ -9,6 +9,11 @@ class Formation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'years',
+    ];
+
     public function students() {
         return $this->hasMany(Student::class);
     }

@@ -9,6 +9,13 @@ class Student extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'email',
+        'number',
+    ];
+
     public function formation() {
         return $this->belongsTo(Formation::class);
     }

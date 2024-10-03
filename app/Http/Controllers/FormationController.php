@@ -13,8 +13,46 @@ class FormationController extends Controller
         return view('formations.index' , ['formations'=>Formation::orderBy('name')->get()]);
     }
 
+    public function create() {
+        return view('formations.create');
+    }
+
+
+    public function store(Request $request) {
+
+        $data = $request->validate([
+            'name' => 'required',
+            'years' => 'required|numeric'
+        ]);
+
+        $formation = new Formation();
+        $formation->fill($data);
+        $formation->save();
+        return redirect()->route('formations.index');
+    }
+
     public function show(Formation $formation) {
         return view('formations.show' , ['formation' => $formation]);
+    }
+
+    public function edit(Formation $formation) {
+        return view('formations.edit' , ['formation' => $formation]);
+    }
+
+    public function destroy(Formation $formation) {
+        $formation->delete();
+        return redirect()->route('formations.index');
+    }
+
+    public function update(Request $request , Formation $formation) {
+
+       $data = $request->validate([
+            'name' => 'required',
+            'years' => 'required|numeric'
+        ]);
+        $formation->fill($data);
+        $formation->save();
+        return redirect()->route('formations.index');
     }
 }
 
