@@ -7,6 +7,10 @@ use App\Http\Controllers\GroupeController;
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Student;
+use App\Models\Formation;
+use App\Models\Groupe;
+use App\Http\Controllers\CourController;
+use App\Models\Cour;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +42,10 @@ Route::get('/student/{student}', [StudentController::class, 'show'])->name('stud
 Route::get('/groupe', [GroupeController::class, 'index'])->name('groupes.index');
 
 Route::get('/groupe/{groupe}', [GroupeController::class, 'show'])->name('groupes.show');
+
+Route::get('/cours', [CourController::class, 'index'])->name('cours.index');
+
+Route::get('/cours/{cour}', [CourController::class, 'show'])->name('cours.show');
 
 
 

@@ -12,4 +12,12 @@ class Student extends Model
     public function formation() {
         return $this->belongsTo(Formation::class);
     }
+
+    public function groupes() {
+        return $this->belongsToMany(Groupe::class);
+    }
+
+    public function cours() {
+        return $this->belongsToMany(Cour::class);
+    }
 }

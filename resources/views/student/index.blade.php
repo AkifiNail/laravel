@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<x-layout.front title=" pdsqdqdaul">
 
     <ul>
         @foreach ($students as $student)
         <li>{{ $student->lastname }} {{ $student->firstname }}</li>
         <a href="{{ route('student.show', [ $student ]) }}">View</a>
         @endforeach
-
+    
     </ul>
 
 
+</x-layout.front>
 
-</body>
-</html>
+
