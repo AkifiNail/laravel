@@ -9,6 +9,14 @@ class Cour extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'debut',
+        'fin',
+        'formation_id',
+        'groupe_id',
+    ];
+
     protected $casts = [
         'debut' => 'datetime',
         'fin' => 'datetime',

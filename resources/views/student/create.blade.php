@@ -35,12 +35,15 @@
     <span style="display: block; color: red;">{{ $message }}</span>
     @enderror
     <br>
-    <x-forms.select name="formation_id">
+    <x-forms.select name="formation_id" >
         <option value="">Pas de formation</option>
         @foreach ($formations as $formation)
             <option value="{{ $formation->id }}"  @if (old("formation_id") == $formation->id) selected @endif>{{ $formation->name }}</option>
         @endforeach
     </x-forms.select>
+    <p>
+        <x-forms.checkboxes name="groupes" :options="$groupes->pluck('name', 'id')"/>
+    </p>
     <button type="submit">Creer</button>
 </form>
 

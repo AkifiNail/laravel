@@ -27,6 +27,7 @@ class StudentRequest extends FormRequest
             'email' => 'required|email',
             'number' => 'required|numeric',
             'formation_id' => 'nullable|integer|exists:formations,id',
+            'groupes' => 'required|nullable|array',
         ];
     }
 }

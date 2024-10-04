@@ -3,11 +3,11 @@
 @section('main')
 
     <h1>{{ $groupe->name }}</h1>
-    <a href="{{ route('groupes.index' )}}">Retour</a>
+    <a href="{{ route('groupe.index' )}}">Retour</a>
 
-    @foreach ($groupe->groupes as $groupe)
+    {{-- @foreach ($groupe->groupes as $groupe)
     <p>{{ $groupe->name }}</p>
-    @endforeach
+    @endforeach --}}
 
 
 @endsection

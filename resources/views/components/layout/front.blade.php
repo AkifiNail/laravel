@@ -12,7 +12,7 @@
             <ul>
                 <li><a href="{{ route('student.index')}}">Etudiants</a></li>
                 <li><a href="{{ route('formations.index')}}">Formations</a></li>
-                <li><a href="{{ route('groupes.index')}}">Groupes</a></li>
+                <li><a href="{{ route('groupe.index')}}">Groupes</a></li>
                 <li><a href="{{ route('cours.index')}}">Corus</a></li>
             </ul>
         </nav>

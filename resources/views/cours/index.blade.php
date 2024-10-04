@@ -4,6 +4,10 @@
 
     <h1>Cours</h1>
 
+    @auth
+    <a href="{{ route('cours.create') }}">Crée un cour</a>
+    @endauth
+
     <ul>
         @foreach ($cours as $cour)
         <li>{{ $cour->name }} </li>

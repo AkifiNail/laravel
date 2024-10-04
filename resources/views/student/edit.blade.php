@@ -17,6 +17,9 @@
     <br>
     <x-forms.input name="number" type="number" :value="$student->number" />
     <br>
+    <p>
+        <x-forms.checkboxes name="groups" :value="$student->groupes->pluck('id')" :options="$groupes->pluck('name', 'id')" />
+    </p>
     <button type="submit">Modifier</button>
 </form>
 

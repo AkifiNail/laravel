@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1>{{ $cour->name }}</h1>
+    @can('update', $cour)
+    <a href="{{ route('cours.edit',  [ $cour ])}}">Editer le cours</a>
+    @endcan
+    <br>
+    @can('delete', $cour)
+    <form action="{{ route('cours.destroy', [ 'cour' => $cour ]) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Supprimer</button>
+    </form>
+    @endcan
+    <br>
     <a href="{{ route('cours.index' )}}">Retour</a>
 
     <p>Groupe : {{ $cour->groupe->name }}</p>

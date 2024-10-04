@@ -7,8 +7,7 @@
 
 <form method="POST" action="{{ route('formations.store') }}">
     @csrf
-    @method("put")
-   
+    
     <label for="name">Nom</label>
     <input type="text" name="name" id="name" value="{{ old('name') }}">
     @error('name')

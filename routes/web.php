@@ -1,29 +1,37 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FormationController;
 
 use App\Http\Controllers\GroupeController;
-
-use Illuminate\Support\Facades\Route;
 use App\Models\Student;
 use App\Models\Formation;
 use App\Models\Groupe;
 use App\Http\Controllers\CourController;
 use App\Models\Cour;
 
+Route::view('/', 'welcome');
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+require __DIR__.'/auth.php';
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/test', function () {
-    return view('test');
-});
-
-Route::get('/greeting/{name}', function ($name) {
-    return view('greeting' , ['name' => $name]);
-});
 
 
 
@@ -49,6 +57,8 @@ Route::get('/greeting/{name}', function ($name) {
 
 Route::resource('/formations', FormationController::class);
 Route::resource('/student', StudentController::class);
+Route::resource('/cours', CourController::class);
+Route::resource('/groupe', GroupeController::class);
 
 // Route::get('/student', [StudentController::class, 'index'])->name('student.index');
 
@@ -65,15 +75,15 @@ Route::resource('/student', StudentController::class);
 // Route::post('/student', [StudentController::class, 'store'])->name('student.store');
 
 
-Route::get('/groupe', [GroupeController::class, 'index'])->name('groupes.index');
+// Route::get('/groupe', [GroupeController::class, 'index'])->name('groupes.index');
 
-Route::get('/groupe/{groupe}', [GroupeController::class, 'show'])->name('groupes.show');
+// Route::get('/groupe/{groupe}', [GroupeController::class, 'show'])->name('groupes.show');
 
-Route::get('/cours', [CourController::class, 'index'])->name('cours.index');
+// Route::get('/cours', [CourController::class, 'index'])->name('cours.index');
 
 
 
-Route::get('/cours/{cour}', [CourController::class, 'show'])->name('cours.show');
+// Route::get('/cours/{cour}', [CourController::class, 'show'])->name('cours.show');
 
 
 

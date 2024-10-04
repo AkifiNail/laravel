@@ -13,7 +13,8 @@ class Student extends Model
         'firstname',
         'lastname',
         'email',
-        'number',
+        'number',   
+        'formation_id',
     ];
 
     public function formation() {
